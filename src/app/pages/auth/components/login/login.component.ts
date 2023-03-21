@@ -5,7 +5,7 @@ import { ActivationCompanyUserModel } from '@models/activation-company-user.mode
 import { CoreService } from '@services/core.service';
 import { UINotificationService } from '@services/uinotification.service';
 
-const KEY_CODE_ENTER = 13
+const KEY_CODE_ENTER = 13;
 
 @Component({
   selector: 'app-login',
@@ -44,13 +44,13 @@ export class LoginComponent implements OnInit {
 
   onEnter(event) {
     if (event.keyCode === KEY_CODE_ENTER) {
-      this.login()
+      this.login();
     }
   }
 
   selectCompany(idActivationUser: number) {
     this._coreService.post<any>('user_company/' + idActivationUser).subscribe(res => {
-      this.router.navigate(['dashboard'])
+      this.router.navigate(['dashboard']);
     });
   }
 
@@ -60,26 +60,35 @@ export class LoginComponent implements OnInit {
         this.formLogin.get('usuario').value,
         this.formLogin.get('password').value,
         (response: ActivationCompanyUserModel[]) => {
-          if (response.length === 1) {
+          this._uiNotificationService.clearAll();
+          if (response.length < 1) {
+            this._uiNotificationService.error('No tiene un perfil activo');
+          } else if (response.length === 1) {
             this.selectCompany(response[0].id);
+            this._uiNotificationService.success("Inicio de session correcto");
           } else if (response.length > 1) {
             this.activationCompanyUsers = response;
+            this._uiNotificationService.success("Inicio de session correcto");
           }
-          this._uiNotificationService.clearAll()
-          this._uiNotificationService.success("Inicio de session correcto")
         },
         (e) => {
-          if (e.status === 401) {
-            this._uiNotificationService.clearAll()
-            this._uiNotificationService.error("Usuario o contraseña invalida")
+          if (e.status == 401 || e.status == 400) {
+            this._uiNotificationService.clearAll();
+            this._uiNotificationService.error("Usuario o contraseña invalida");
           }
         }
-      )
+      );
     }
   }
 
   get showListCompanies() {
-    return this.activationCompanyUsers.length > 1
+    return this.activationCompanyUsers.length > 1;
+  }
+
+  recoverPassword() {
+    this._uiNotificationService.clearAll();
+    this._uiNotificationService.success("Por favor comuníquese con el administrador.");
   }
 
 }
+
