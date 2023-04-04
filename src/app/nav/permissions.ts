@@ -9,5 +9,6 @@ export const GESTION_TIPO_PAGO        = 'GESTION_TIPO_PAGO';
 export const GESTION_TIPO_TRANSACCION = 'GESTION_TIPO_TRANSACCION';
 export const GESTION_PAGO_NOMINA      = 'GESTION_PAGO_NOMINA';
 export const GESTION_COMPETENCIA      = 'GESTION_COMPETENCIA'; 
+export const GESTION_SEDE = 'GESTION_SEDE';
 //se crea constante exportable de COMPETENCIA
 

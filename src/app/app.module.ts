@@ -55,15 +55,13 @@ const APP_CONTAINERS = [
     SnotifyModule,
     HttpClientModule,
     SweetAlert2Module.forRoot(),
-    RouterModule,
+    RouterModule
   ],
   declarations: [
     AppComponent,
     ...APP_CONTAINERS,
     P404Component,
-    P500Component,
-    // CompetenciasComponent,
-    // CompetenciasListComponent,
+    P500Component
   ],
   providers: [
     {
