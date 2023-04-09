@@ -10,7 +10,7 @@ import { UINotificationService } from '@services/uinotification.service';
 })
 export class ProcesoComponent implements OnInit {
 
-  private showModalProceso = false;
+  protected showModalProceso = false;
 
   proceso: ProcesoModel = null;
   procesos: ProcesoModel[] = [];

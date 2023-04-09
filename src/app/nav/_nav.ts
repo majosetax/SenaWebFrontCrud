@@ -8,8 +8,9 @@ import { GESTION_MEDIO_PAGO,
           GESTION_TIPO_PAGO, 
           GESTION_TIPO_TRANSACCION, 
           GESTION_PAGO_NOMINA, 
-          GESTION_COMPETENCIA,
-          GESTION_SEDE
+          GESTION_SEDE,
+          GESTION_AREA,
+          GESTION_INFRAESTRUCTURA
 } from './permissions';
 
 export const navItems: NavegacionModel[] = [
@@ -68,17 +69,23 @@ export const navItems: NavegacionModel[] = [
     permiso: GESTION_PAGO_NOMINA,
   },
   {
-    name: "Competencia",
-    url: 'gestionar_competencia', //URL que mostrará la vista
-    icon: 'icon_drop',
-    permiso: GESTION_COMPETENCIA,
-  },
-  {
     name: "Sedes",
     url: 'gestionar_sede', //URL que mostrará la vista
     icon: 'icon_drop',
     permiso: GESTION_SEDE,
-  }
+  },
+  {
+    name: "Area",
+    url: 'gestionar_area', //URL que mostrará la vista
+    icon: 'icon_drop',
+    permiso: GESTION_AREA,
+  },
+  {
+    name: "Infraestructura",
+    url: 'gestionar_infraestructura', //URL que mostrará la vista
+    icon: 'icon_drop',
+    permiso: GESTION_INFRAESTRUCTURA,
+  },
 
 ];
 
@@ -133,11 +140,16 @@ export const routesNav: Routes = [
     loadChildren: () => import('../pages/usuario/usuario.module').then(m => m.UsuarioModule)
   },
   {
-    path: 'gestionar_competencia',
-    loadChildren: () => import('../pages/competencias/competencias.module').then(m => m.CompetenciasModule)
-  },
-  {
     path: 'gestionar_sede',
     loadChildren: () => import('../pages/sede/sede.module').then(m => m.SedeModule)
+  },
+  {
+    path: 'gestionar_area',
+    loadChildren: () => import('../pages/area/area.module').then(m => m.AreaModule)
+  },
+  {
+    path: 'gestionar_infraestructura',
+    loadChildren: () => import('../pages/infraestructura/infraestructura.module').then(m => m.InfraestructuraModule)
   }
+
 ];

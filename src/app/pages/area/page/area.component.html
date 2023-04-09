@@ -1,0 +1,16 @@
+<app-area-list 
+    [areas]="areas" 
+    (delete)="onDeleteArea($event)"
+    (create)="onCreateArea($event)"
+    (update)="onUpdateArea($event)">
+</app-area-list>
+<app-custom-modal 
+    title="Gestionar Area"
+    [(show)]="showModalArea">
+    <app-area-form 
+        [area]="area" 
+        [title]="formTitle"
+        (store)="onSaveArea($event)"
+        (cancel)="reset($event)">
+    </app-area-form>
+</app-custom-modal>
