@@ -28,7 +28,7 @@ export class AreaFormComponent implements OnInit {
   }
 
   public ngOnInit(){
-    this.setArea();
+    this.getArea();
   }
 
   get nombreAreaField(){
@@ -39,7 +39,7 @@ export class AreaFormComponent implements OnInit {
   }
 
   public setArea(){
-    if(this.area){
+    if(this.area.id){
       this.formArea.patchValue({
         nombreArea:this.area.nombreArea,
         codigo:this.area.codigo

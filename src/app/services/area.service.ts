@@ -7,7 +7,7 @@ import { AreaModel } from '@models/area.model';
 })
 
 export class AreaService {
-  Area: AreaModel;
+
   constructor(
     private _coreService: CoreService
   ) { }
@@ -18,7 +18,7 @@ export class AreaService {
   }
   //retorna un area al introducir una id
   public getArea(id:number){
-    return this._coreService.get<AreaService[]>('areas/'+id);
+    return this._coreService.get<AreaModel>('areas/'+id);
   }
   //borra una area de la base de datos
   public deleteArea(id:number){

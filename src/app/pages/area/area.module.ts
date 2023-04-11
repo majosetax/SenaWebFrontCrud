@@ -8,6 +8,7 @@ import { ComunModule } from '@components/comun.module';
 import { AreaListComponent } from './components/area-list/area-list.component';
 import { AreaFormComponent } from './components/area-form/area-form.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 @NgModule({
   exports:[
     AreaComponent

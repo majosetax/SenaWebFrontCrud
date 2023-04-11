@@ -13,6 +13,7 @@ export class AreaComponent implements OnInit{
 
   areas:AreaModel[]=[];
   area:AreaModel;
+  
   protected formTitle:string;
   protected showModalArea:boolean= false;
 
@@ -21,7 +22,7 @@ export class AreaComponent implements OnInit{
     private _areaService: AreaService
   ){}
 
-  public ngOnInit(){
+  public ngOnInit():void{
     this.getAreas();
   }
   public getAreas(){

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sede-list',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./sede-list.component.scss']
 })
 export class SedeListComponent {
+   @Input() title:string;
 
+   @Output() boton = new EventEmitter<number>();
+   contador:number=0;
+
+   contar() {
+    this.contador++;
+    this.boton.emit(this.contador)
+   }
 }

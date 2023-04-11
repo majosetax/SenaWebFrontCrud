@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./sede.component.scss']
 })
 export class SedeComponent {
-
+  onButtonClick(event:number){
+    console.log(event);
+  }
 }
