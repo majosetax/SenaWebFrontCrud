@@ -6,7 +6,7 @@ import { CoreService } from './core.service';
   providedIn: 'root'
 })
 export class CiudadService {
-  ciudad: CiudadModel;
+
   constructor(
     private _coreService: CoreService
   ) { }

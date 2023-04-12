@@ -1,6 +1,6 @@
 <div class="modal-body">
     <div class="card-header">
-        <strong>{{title}}</strong>
+        <strong>{{title}}</strong> 
     </div>
     <div class="card-body">
         <form 
@@ -8,61 +8,61 @@
             [formGroup]="formArea"
             class="was-validated"
             novalidate>
-           <div class="form-group row">
+            <div class="form-group row">
                 <label
-                    class="coll-md-4 col-form-label"
-                    for="name">
-                    Nombre Area
+                    class="col-md-4 col-form-label" 
+                    for="areaf">
+                    Área
                 </label>
                 <div class="col-md-7">
                     <input 
                         type="text"
                         onkeyup="javascript:this.value=this.value.toUpperCase();"
-                        placeholder="Ingrese el nombre del area"
+                        placeholder="Ingrese el nombre del área"
                         class="form-control is-valid"
-                        formControlName="nombreArea"
-                        id="name"
+                        formControlName='nombreArea'
+                        id="areaf"
                         required>
-                    <div 
-                        class="valid-feedback"
+                    <div class="valid-feedback"
                         *ngIf="!nombreAreaField.hasError('required')">
-                        Valor Válido
+                        Valor válido
                     </div>
                 </div>
                 <div class="invalid-feedback">
-                    Por favor ingresé un valor valido para el nombre del area
+                    Por favor ingrese un valor válido para el nombre del área
                 </div>
-           </div>
-           <div class="form-group row">
+            </div>
+            <div class="form-group row">
                 <label
-                    class="coll-md-4 col-form-label"
-                    for="code">
-                    Codigo Area
+                    class="col-md-4 col-form-label"
+                    for="codigof">
+                    Código
                 </label>
                 <div class="col-md-7">
                     <input 
                         type="text"
-                        placeholder="ingrese el codigo del area"
+                        onkeyup="javascript:this.value=this.value.toUpperCase();"
+                        placeholder="Ingrese el código del área"
                         class="form-control is-valid"
-                        formControlName="codigo"
-                        id="code"
+                        formControlName='codigo'
+                        id="codigof"
                         required>
-                    <div
+                    <div 
                         class="valid-feedback"
                         *ngIf="!codigoField.hasError('required')">
-                        Valor Válido
+                        Valor válido
                     </div>
                 </div>
                 <div class="invalid-feedback">
-                    Por favor ingresé un valor valido para el nombre del area
+                    Por favor ingrese un código valido
                 </div>
-           </div>
+            </div>
         </form>
         <div class="card-footer">
             <button
                 type="submit"
-                class="btn btn-sn btn-primary"
-                (click)="saveArea()"
+                class="btn btn-sm btn-primary"
+                (click)="guardarArea()"
                 [disabled]="formArea.invalid">
                 <i class="fa fa-dot-circle-o"></i>
                 Aceptar
@@ -71,7 +71,7 @@
                 type="reset"
                 class="btn btn-sm btn-danger"
                 (click)="closeModal()">
-                <i class="fa fa-ban"></i>
+                <i class="fas fa-ban"></i>
                 Cancelar
             </button>
         </div>

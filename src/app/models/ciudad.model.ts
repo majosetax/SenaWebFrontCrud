@@ -8,5 +8,5 @@ export interface CiudadModel {
   idDepartamento ?: number;
 
   departamento ?: DepartamentoModel;
-  sedes?: SedeModel;
+  sedes?: SedeModel[];
 }

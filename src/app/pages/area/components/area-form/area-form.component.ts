@@ -9,25 +9,30 @@ import { debounceTime } from 'rxjs/operators';
   styleUrls: ['./area-form.component.scss']
 })
 export class AreaFormComponent implements OnInit {
+
   @Input() area:AreaModel;
   @Input() title:string;
   
-  @Output() store: EventEmitter<AreaModel>=new EventEmitter();
-  @Output() cancel: EventEmitter<boolean>=new EventEmitter();
+  @Output() store = new EventEmitter<AreaModel>();
+  @Output() cancel = new EventEmitter<void>();
 
   formArea: UntypedFormGroup;
+
   constructor(
     private formBuilder:UntypedFormBuilder
   ){
+
     this.area={
       id:null,
       nombreArea:'',
       codigo:''
     };
+
     this.buildForm();
+
   }
 
-  public ngOnInit(){
+  ngOnInit():void{
     this.getArea();
   }
 
@@ -38,8 +43,8 @@ export class AreaFormComponent implements OnInit {
     return this.formArea.get('codigo');
   }
 
-  public setArea(){
-    if(this.area.id){
+  setArea(){
+    if(this.area){
       this.formArea.patchValue({
         nombreArea:this.area.nombreArea,
         codigo:this.area.codigo
@@ -62,10 +67,10 @@ export class AreaFormComponent implements OnInit {
   }
 
   closeModal(){
-    this.cancel.emit(false);
+    this.cancel.emit();
   }
 
-  saveArea(){
+  guardarArea(){
     this.store.emit(this.getArea());
   }
 

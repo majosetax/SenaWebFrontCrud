@@ -63,8 +63,7 @@ export class AddProcesoComponent implements OnInit {
     this.formProceso.valueChanges
       .pipe(
         debounceTime(350),
-      )
-      .subscribe(data => {
+      ).subscribe(data => {
       });
   }
 

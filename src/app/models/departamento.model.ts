@@ -4,5 +4,5 @@ export interface DepartamentoModel {
   id: number;
   descripcion: string;
 
-  ciudades?: CiudadModel;
+  ciudades?: CiudadModel[];
 }

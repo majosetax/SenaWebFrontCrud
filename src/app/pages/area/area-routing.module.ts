@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AreaComponent } from './page/area.component';
+import { AreaComponent } from './page/area/area.component';
 
 const routes: Routes = [
   {

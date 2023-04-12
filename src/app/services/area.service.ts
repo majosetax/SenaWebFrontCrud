@@ -13,27 +13,28 @@ export class AreaService {
   ) { }
   
   //retorna todos las areas
-  public getAreas(){
+  public traerAreas(){
     return this._coreService.get<AreaModel[]>('areas');
   }
   //retorna un area al introducir una id
-  public getArea(id:number){
+  public traerArea(id:number){
     return this._coreService.get<AreaModel>('areas/'+id);
   }
   //borra una area de la base de datos
-  public deleteArea(id:number){
+  public borrarArea(id:number){
     return this._coreService.delete('areas/'+id);
   }
   //crea un area
-  public createArea(area: AreaModel){
+  public guardarArea(area: AreaModel){
     area.nombreArea = area.nombreArea.toUpperCase();
     area.codigo = area.codigo.toUpperCase();
     return this._coreService.post<AreaModel>('areas',area);
   }
   //actualiza un area existente
-  public updateArea(area: AreaModel){
+  public actualizarArea(area: AreaModel){
     area.nombreArea = area.nombreArea.toUpperCase();
     area.codigo = area.codigo.toUpperCase();
     return this._coreService.put('areas/'+area.id,area);
   }
+  
 }

@@ -1,16 +1,18 @@
 <app-area-list 
     [areas]="areas" 
-    (delete)="onDeleteArea($event)"
-    (create)="onCreateArea($event)"
-    (update)="onUpdateArea($event)">
+    (delete)="eliminarArea($event)"
+    (update)="actualizarArea($event)"
+    (create)="crearArea()">
 </app-area-list>
+
 <app-custom-modal 
     title="Gestionar Area"
     [(show)]="showModalArea">
     <app-area-form 
+        *ngIf="showModalArea"
         [area]="area" 
         [title]="formTitle"
-        (store)="onSaveArea($event)"
-        (cancel)="reset($event)">
+        (store)="guardarArea($event)"
+        (cancel)="reset()">
     </app-area-form>
 </app-custom-modal>

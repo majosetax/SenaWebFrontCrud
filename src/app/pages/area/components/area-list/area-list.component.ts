@@ -7,24 +7,34 @@ import { AreaModel } from '@models/area.model';
   styleUrls: ['./area-list.component.scss']
 })
 export class AreaListComponent {
+
   @Input() areas:AreaModel[]=[];
 
   @Output() delete= new EventEmitter<number>();
-  @Output() create= new EventEmitter<boolean>();
+  @Output() create= new EventEmitter<void>();
   @Output() update= new EventEmitter<AreaModel>();
 
-  public deleteArea(id:number){
-    /*const deleteindex:number=this.areas.findIndex(area=>area.id===id);
-    if(deleteindex!==-1){
-      this.areas.splice(deleteindex,1);
-    }*/
-    this.delete.emit(id);
-  }
-  public createArea(){
+  numRegistros:number=10;
+  pageActual:number=0;
 
-    this.create.emit(true);
+  enviarNumeroRegistros(num: number){
+    this.numRegistros = num;
   }
-  public updateArea(area: AreaModel){
+
+  actualizar(area: AreaModel){
     this.update.emit(area);
   }
+
+  eliminar(id:number){
+    const deleteindex:number=this
+      .areas.findIndex(area=>area.id===id);
+    if(deleteindex!==-1){
+      this.areas.splice(deleteindex,1);
+    }
+    this.delete.emit(id);
+  }
+  public agregar(){
+    this.create.emit();
+  }
+  
 }
