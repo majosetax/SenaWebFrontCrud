@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
 import { NavegacionModel } from '../models/navegacion.model';
-import { GESTION_MEDIO_PAGO, 
-          GESTION_PROCESOS, 
-          GESTION_ROLES, 
-          GESTION_ROL_PERMISOS, 
-          GESTION_TIPO_DOCUMENTOS, 
-          GESTION_TIPO_PAGO, 
-          GESTION_TIPO_TRANSACCION, 
-          GESTION_PAGO_NOMINA, 
+import { GESTION_MEDIO_PAGO,
+          GESTION_PROCESOS,
+          GESTION_ROLES,
+          GESTION_ROL_PERMISOS,
+          GESTION_TIPO_DOCUMENTOS,
+          GESTION_TIPO_PAGO,
+          GESTION_TIPO_TRANSACCION,
+          GESTION_PAGO_NOMINA,
           GESTION_SEDE,
           GESTION_AREA,
           GESTION_INFRAESTRUCTURA

@@ -11,11 +11,11 @@ export class CiudadService {
     private _coreService: CoreService
   ) { }
 
-  public traerCiudades() {
+  traerCiudades() {
      return this._coreService.get<CiudadModel[]>('ciudades');
   }
 
-  public ciudadesByDep(iddepartamento: number) {
+  ciudadesByDep(iddepartamento: number) {
     const url = `ciudades/departamento/${iddepartamento}`;
     return this._coreService.get<CiudadModel[]>(url);
 

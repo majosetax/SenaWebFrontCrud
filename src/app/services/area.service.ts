@@ -11,30 +11,33 @@ export class AreaService {
   constructor(
     private _coreService: CoreService
   ) { }
-  
+
   //retorna todos las areas
-  public traerAreas(){
+  traerAreas(){
     return this._coreService.get<AreaModel[]>('areas');
   }
   //retorna un area al introducir una id
-  public traerArea(id:number){
-    return this._coreService.get<AreaModel>('areas/'+id);
+  traerArea(id:number){
+    const url:string=`areas/${id}`;
+    return this._coreService.get<AreaModel>(url);
   }
   //borra una area de la base de datos
-  public borrarArea(id:number){
-    return this._coreService.delete('areas/'+id);
+  borrarArea(id:number){
+    const url:string=`areas/${id}`;
+    return this._coreService.delete(url);
   }
   //crea un area
-  public guardarArea(area: AreaModel){
+  guardarArea(area: AreaModel){
     area.nombreArea = area.nombreArea.toUpperCase();
     area.codigo = area.codigo.toUpperCase();
     return this._coreService.post<AreaModel>('areas',area);
   }
   //actualiza un area existente
-  public actualizarArea(area: AreaModel){
+  actualizarArea(area: AreaModel){
+    const url:string=`areas/${area.id}`;
     area.nombreArea = area.nombreArea.toUpperCase();
     area.codigo = area.codigo.toUpperCase();
-    return this._coreService.put('areas/'+area.id,area);
+    return this._coreService.put(url,area);
   }
-  
+
 }

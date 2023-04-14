@@ -1,0 +1,10 @@
+<app-sede-list
+    [sedes]="sedes"
+    [departamentos]="departamentos"
+    [ciudades]="ciudades"
+    (delete)="eliminarSede($event)"
+    (update)="actualizarSede($event)"
+    (create)="crearSede()"
+    (depId)="getCiudadesByDep($event)"
+    (ciudadId)="getSedesByCiudad($event)">
+</app-sede-list>

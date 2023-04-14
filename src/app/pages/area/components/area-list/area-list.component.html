@@ -2,72 +2,64 @@
     <div class="card">
         <div class="card">
             <div class="card-header">
-                <i class="fa fa-align-justify"></i>
+              <i class="fa fa-align-justify"></i>
                 Áreas Registradas
-                <select #nreg 
-                        class="form-control col-lg-1" 
+                <select #nreg
+                        class="form-control col-lg-1"
                         (change)="enviarNumeroRegistros($event.target.value) ">
                     <option>10</option>
                     <option>15</option>
                     <option>20</option>
                     <option>25</option>
                 </select>
-                <div class="card-body">
-                    <div class="div table-container">
-                        <table class="table table-striped table-hover table-responsive">
-                            <thead>
-                                <tr class="table-info">
-                                    <th>ID</th>
-                                    <th>Área</th>
-                                    <th>Código</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let area of areas 
-                                    | paginate: { 
-                                                    itemsPerPage: this.numRegistros, 
-                                                    currentPage: pageActual 
-                                                }">
-                                    <td>{{area.id}}</td>
-                                    <td>{{area.nombreArea}}</td>
-                                    <td>{{area.codigo}}</td>
-                                    <td>
-                                        <span 
-                                            class="badge badge-primary"
-                                            stayle="cursos: pointer;"
-                                            (click)="actualizar(area)">
-                                            Actualizar
-                                        </span>
-                                        <span
-                                            class="badge badge-danger"
-                                            style="cursor:pointer"
-                                            [swal]="{
-                                                title:'¿Desea eliminar?',
-                                                showCancelButton: true
-                                            }"
-                                            (confrim)="eliminar(area.id)">
-                                            Eliminar
-                                        </span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <button
-                                type="button"
-                                class="btn btn-success mr-10 btn-sm"
-                                (click)="agregar()">
-                                Agregar
-                            </button>
-                        </table>
-                        <span>
-                            <pagination-controls (pageChange)="pageActual=$event">
-                            </pagination-controls>
-                        </span>
-                    </div>
-                </div>
             </div>
+          <div class="card-body">
+                <div class="div table-container">
+                  <table class="table table-striped table-hover table-responsive">
+                      <thead>
+                        <tr class="table-info">
+                          <th>ID</th>
+                          <th>Área</th>
+                          <th>Código</th>
+                          <th>Acciones</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                     <tr *ngFor="let area of areas| paginate: { itemsPerPage: this.numRegistros,currentPage: pageActual}">
+                     <td>{{area.id}}</td>
+                     <td>{{area.nombreArea}}</td>
+                     <td>{{area.codigo}}</td>
+                     <td>
+                       <span
+                          class="badge badge-primary"
+                          stayle="cursos: pointer;"
+                          (click)="actualizar(area)">
+                          Actualizar
+                       </span>
+                       <span
+                          class="badge badge-danger"
+                          style="cursor:pointer"
+                          [swal]="{ title:'¿Desea eliminar?', showCancelButton: true }"
+                          (confirm)=" eliminar(area.id)">
+                        Eliminar
+                       </span>
+                    </td>
+                  </tr>
+               </tbody>
+              <button
+                  type="button"
+                  class="btn btn-success mr-10 btn-sm"
+                  (click)="agregar()">
+                  Agregar
+              </button>
+           </table>
+           <span>
+              <pagination-controls (pageChange)="pageActual=$event">
+              </pagination-controls>
+            </span>
+          </div>
         </div>
+      </div>
     </div>
 </div>
 
-   

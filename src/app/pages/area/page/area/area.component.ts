@@ -16,55 +16,57 @@ export class AreaComponent implements OnInit{
 
   area:AreaModel=null;
   areas:AreaModel[]=[];
-  
+
   constructor(
     private _uiNotificationService: UINotificationService,
     private _areaService: AreaService
   ){}
-  
-  public ngOnInit():void{
+
+  ngOnInit():void{
     this.getAreas();
   }
 
-  public getAreas(){
+  getAreas(){
     this._areaService.traerAreas().subscribe(areas=>{
       this.areas=areas;
     },error=>{
-      this._uiNotificationService.error("Error de conexión",error);
+      this._uiNotificationService.error("Error de conexión");
     });
   }
 
-  public eliminarArea(event:number){
-    this._areaService.borrarArea(event).subscribe(() =>{
+  eliminarArea(event:number){
+    this._areaService.borrarArea(event).subscribe(()=>{
       this.getAreas();
-    });
+    })
   }
 
-  public actualizarArea(event: AreaModel){
-    this.formTitle='Editar área'
+  actualizarArea(event: AreaModel){
+    this.formTitle='Editar área';
     this.area=event;
     this.showModalArea=true;
   }
 
-  public crearArea(){
+  crearArea(){
     this.showModalArea=true;
-    this.formTitle='Añadir área'
+    this.formTitle='Añadir área';
   }
-  
-  public guardarArea(event:AreaModel){
+
+  guardarArea(event:AreaModel){
     if(event.id){
       this._areaService.actualizarArea(event).subscribe(()=>{
         this.getAreas();
         this.reset();
+        this.area=null;
       });
     }else{
       this._areaService.guardarArea(event).subscribe(()=>{
         this.getAreas();
         this.reset();
+        this.area=null;
       });
     }
   }
-  public reset(){
+  reset(){
     this.showModalArea=false;
     this.formTitle='';
     this.area=null;

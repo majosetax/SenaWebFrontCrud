@@ -26,15 +26,10 @@ export class AreaListComponent {
   }
 
   eliminar(id:number){
-    const deleteindex:number=this
-      .areas.findIndex(area=>area.id===id);
-    if(deleteindex!==-1){
-      this.areas.splice(deleteindex,1);
-    }
     this.delete.emit(id);
   }
-  public agregar(){
+  agregar(){
     this.create.emit();
   }
-  
+
 }

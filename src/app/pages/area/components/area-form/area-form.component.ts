@@ -12,7 +12,7 @@ export class AreaFormComponent implements OnInit {
 
   @Input() area:AreaModel;
   @Input() title:string;
-  
+
   @Output() store = new EventEmitter<AreaModel>();
   @Output() cancel = new EventEmitter<void>();
 
@@ -33,7 +33,9 @@ export class AreaFormComponent implements OnInit {
   }
 
   ngOnInit():void{
-    this.getArea();
+    if(!(this.area==null)){
+      this.setArea();
+    }
   }
 
   get nombreAreaField(){
@@ -54,9 +56,9 @@ export class AreaFormComponent implements OnInit {
 
   private buildForm(){
     this.formArea = this.formBuilder.group({
-      id:[0],
-      nombreArea: ['',[Validators.required]],
-      codigo: ['',[Validators.required]]
+      id: [0],
+      nombreArea: ['', [Validators.required]],
+      codigo: ['', [Validators.required]],
     });
 
     this.formArea.valueChanges
