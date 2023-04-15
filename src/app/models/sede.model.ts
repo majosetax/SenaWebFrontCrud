@@ -11,5 +11,5 @@ export interface SedeModel{
     idCiudad?:number;
 
     ciudad?:CiudadModel;
-    infraestructuras?:InfraestructuraModel;
+    infraestructuras?:InfraestructuraModel[];
 }

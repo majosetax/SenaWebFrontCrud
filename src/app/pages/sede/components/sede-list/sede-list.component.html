@@ -40,7 +40,12 @@
                         <button
                           type="submit"
                           class="btn btn-success">
+                          <!--Icono de lupa-->
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                          </svg>
                           Buscar
+                          <i class="bi bi-search"></i>
                         </button>
                     </form>
                   </div>
@@ -71,7 +76,8 @@
                       class="form-control"
                       (change)="enviaridCiudad(
                         $event.target.value
-                      )">
+                      )"
+                      [disabled]="ciudadSelect">
                       <option value="0">
                         Elija una ciudad
                       </option>
@@ -112,7 +118,8 @@
                             <td>{{sede.telefono}}</td>
                             <td>
                               <span
-                                class="badge badge-primary">
+                                class="badge badge-primary"
+                                (click)="verInfo(sede)">
                                 Ver Info
                               </span>
                             </td>

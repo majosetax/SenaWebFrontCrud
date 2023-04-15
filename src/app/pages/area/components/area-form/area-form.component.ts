@@ -33,9 +33,7 @@ export class AreaFormComponent implements OnInit {
   }
 
   ngOnInit():void{
-    if(!(this.area==null)){
-      this.setArea();
-    }
+    this.setArea();
   }
 
   get nombreAreaField(){

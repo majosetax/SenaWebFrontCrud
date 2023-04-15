@@ -17,9 +17,10 @@ export class SedeListComponent{
    @Output() delete = new EventEmitter<number>();
    @Output() create = new EventEmitter<void>();
    @Output() update = new EventEmitter<SedeModel>();
-   @Output() info = new EventEmitter<void>();
+   @Output() info = new EventEmitter<SedeModel>();
    @Output() depId = new EventEmitter<number>();
    @Output() ciudadId = new EventEmitter<number>();
+   @Output() busqueda = new EventEmitter<SedeModel>();
 
   departamento:DepartamentoModel;
   ciudadSelect:boolean=true;
@@ -42,8 +43,8 @@ export class SedeListComponent{
   agregar(){
     this.create.emit();
   }
-  verInfo(){
-    this.info.emit();
+  verInfo(sede:SedeModel){
+    this.info.emit(sede);
   }
   enviarIdDep(idDep:number){
       if(idDep>0){
@@ -57,11 +58,12 @@ export class SedeListComponent{
   enviaridCiudad(idCiudad:number){
     this.ciudadId.emit(idCiudad);
   }
+
   //revisar
   buscarSede(){
     const busqueda:SedeModel = this.sedes.find(sede=>
         sede.nombreSede.toUpperCase()===this.nombreSede.toUpperCase());
-    this.sedes=[busqueda];
+    this.busqueda.emit(busqueda);
   }
 
 }

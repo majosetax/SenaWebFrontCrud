@@ -6,5 +6,32 @@
     (update)="actualizarSede($event)"
     (create)="crearSede()"
     (depId)="getCiudadesByDep($event)"
-    (ciudadId)="getSedesByCiudad($event)">
+    (ciudadId)="getSedesByCiudad($event)"
+    (info)="verInfoSede($event)"
+    (busqueda)="buscarSede($event)">
 </app-sede-list>
+
+<app-custom-modal
+  title="Gestionar sede"
+  [(show)]="showFormSede">
+  <app-sede-form
+    *ngIf="showFormSede"
+    [sede]="sede"
+    [ciudades]="ciudades"
+    [departamentos]="departamentos"
+    [title]="formTitle"
+    (store)="guardarSede($event)"
+    (depId)="getCiudadesByDep($event)"
+    (cancel)="reset()">
+  </app-sede-form>
+</app-custom-modal>
+
+<app-custom-modal
+  title="Información de la sede:"
+  [(show)]="showInfoSede">
+  <app-sede-info
+    *ngIf="showInfoSede"
+    [sede]="sede"
+    (cerrar)="reset()">
+  </app-sede-info>
+</app-custom-modal>

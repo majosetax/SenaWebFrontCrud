@@ -14,11 +14,12 @@ import { UINotificationService } from '@services/uinotification.service';
 })
 export class SedeComponent implements OnInit{
 
-  protected showModalSede:boolean = false;
+  protected showFormSede:boolean = false;
   protected formTitle:string;
+  protected showInfoSede:boolean = false;
 
-  sede:SedeModel=null;
-  sedes:SedeModel[]=[]
+  sede:SedeModel;
+  sedes:SedeModel[]=[];
 
   departamentos:DepartamentoModel[]=[];
   ciudades:CiudadModel[]=[];
@@ -73,11 +74,11 @@ export class SedeComponent implements OnInit{
   actualizarSede(event:SedeModel){
     this.formTitle='Editar sede';
     this.sede=event;
-    this.showModalSede=true;
+    this.showFormSede=true;
   }
 
   crearSede(){
-    this.showModalSede=true;
+    this.showFormSede=true;
     this.formTitle='Añadir sede';
   }
 
@@ -94,9 +95,16 @@ export class SedeComponent implements OnInit{
       })
     }
   }
-
+  verInfoSede(event:SedeModel){
+    this.sede=event;
+    this.showInfoSede = true;
+  }
+  buscarSede(event:SedeModel){
+    console.log(event);
+  }
   reset(){
-    this.showModalSede = false;
+    this.showInfoSede = false;
+    this.showFormSede = false;
     this.formTitle = '';
     this.sede=null;
   }

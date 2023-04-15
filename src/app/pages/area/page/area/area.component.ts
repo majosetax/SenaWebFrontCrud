@@ -56,13 +56,11 @@ export class AreaComponent implements OnInit{
       this._areaService.actualizarArea(event).subscribe(()=>{
         this.getAreas();
         this.reset();
-        this.area=null;
       });
     }else{
       this._areaService.guardarArea(event).subscribe(()=>{
         this.getAreas();
         this.reset();
-        this.area=null;
       });
     }
   }
