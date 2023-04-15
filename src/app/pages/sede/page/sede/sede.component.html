@@ -35,3 +35,15 @@
     (cerrar)="reset()">
   </app-sede-info>
 </app-custom-modal>
+
+<app-custom-modal
+  title="Resultado de la busqueda"
+  [(show)]="showResultadoBusqueda">
+  <app-sede-result
+    [resultadoBusqueda]="resultadoBusqueda"
+    (update)="actualizarSede($event)"
+    (delete)="eliminarSede($event)"
+    (close)="closeBusqueda()"
+    (cancel)="reset()">
+  </app-sede-result>
+</app-custom-modal>

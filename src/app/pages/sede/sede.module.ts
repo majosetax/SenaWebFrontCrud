@@ -10,6 +10,7 @@ import { SedeListComponent } from './components/sede-list/sede-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SedeInfoComponent } from './components/sede-info/sede-info.component';
 import { SedeFormComponent } from './components/sede-form/sede-form.component';
+import { SedeResultComponent } from './components/sede-result/sede-result.component';
 
 @NgModule({
   exports:[
@@ -19,7 +20,8 @@ import { SedeFormComponent } from './components/sede-form/sede-form.component';
     SedeComponent,
     SedeListComponent,
     SedeInfoComponent,
-    SedeFormComponent
+    SedeFormComponent,
+    SedeResultComponent
   ],
   imports: [
     CommonModule,

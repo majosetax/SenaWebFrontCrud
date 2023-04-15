@@ -17,6 +17,8 @@ export class SedeComponent implements OnInit{
   protected showFormSede:boolean = false;
   protected formTitle:string;
   protected showInfoSede:boolean = false;
+  protected showResultadoBusqueda:boolean=false;
+  protected resultadoBusqueda:SedeModel=null;
 
   sede:SedeModel;
   sedes:SedeModel[]=[];
@@ -100,11 +102,17 @@ export class SedeComponent implements OnInit{
     this.showInfoSede = true;
   }
   buscarSede(event:SedeModel){
-    console.log(event);
+    this.showResultadoBusqueda=true;
+    this.resultadoBusqueda=event;
+  }
+  closeBusqueda(){
+    this.showResultadoBusqueda=false;
+    this.resultadoBusqueda=null;
   }
   reset(){
     this.showInfoSede = false;
     this.showFormSede = false;
+    this.showResultadoBusqueda=false;
     this.formTitle = '';
     this.sede=null;
   }
