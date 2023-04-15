@@ -113,6 +113,7 @@ export class SedeComponent implements OnInit{
     this.showInfoSede = false;
     this.showFormSede = false;
     this.showResultadoBusqueda=false;
+    this.resultadoBusqueda=null;
     this.formTitle = '';
     this.sede=null;
   }

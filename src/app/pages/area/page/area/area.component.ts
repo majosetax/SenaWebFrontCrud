@@ -11,8 +11,10 @@ import { UINotificationService } from '@services/uinotification.service';
 
 export class AreaComponent implements OnInit{
 
-  protected showModalArea:boolean= false;
+  protected showFormArea:boolean= false;
   protected formTitle:string;
+  protected showResultadoBusqueda:boolean=false;
+  protected resultadoBusqueda:AreaModel=null;
 
   area:AreaModel=null;
   areas:AreaModel[]=[];
@@ -43,11 +45,11 @@ export class AreaComponent implements OnInit{
   actualizarArea(event: AreaModel){
     this.formTitle='Editar área';
     this.area=event;
-    this.showModalArea=true;
+    this.showFormArea=true;
   }
 
   crearArea(){
-    this.showModalArea=true;
+    this.showFormArea=true;
     this.formTitle='Añadir área';
   }
 
@@ -64,8 +66,18 @@ export class AreaComponent implements OnInit{
       });
     }
   }
+  buscarArea(event:AreaModel){
+    this.showResultadoBusqueda=true;
+    this.resultadoBusqueda=event;
+  }
+  closeBusqueda(){
+    this.showResultadoBusqueda=false;
+    this.resultadoBusqueda=null;
+  }
   reset(){
-    this.showModalArea=false;
+    this.showFormArea=false;
+    this.showResultadoBusqueda=false;
+    this.resultadoBusqueda=null;
     this.formTitle='';
     this.area=null;
   }

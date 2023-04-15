@@ -7,6 +7,7 @@ import { SedeModel } from '@models/sede.model';
   styleUrls: ['./sede-result.component.scss']
 })
 export class SedeResultComponent {
+
   @Input() resultadoBusqueda:SedeModel;
 
   @Output() cancel= new EventEmitter<void>();

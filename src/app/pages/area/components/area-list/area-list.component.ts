@@ -13,9 +13,11 @@ export class AreaListComponent {
   @Output() delete= new EventEmitter<number>();
   @Output() create= new EventEmitter<void>();
   @Output() update= new EventEmitter<AreaModel>();
+  @Output() busqueda = new EventEmitter<AreaModel>();
 
   numRegistros:number=10;
   pageActual:number=0;
+  nombreArea:string='';
 
   enviarNumeroRegistros(num: number){
     this.numRegistros = num;
@@ -32,4 +34,10 @@ export class AreaListComponent {
     this.create.emit();
   }
 
+  //revisar
+  buscarArea(){
+    const busqueda:AreaModel = this.areas.find(area=>
+      area.nombreArea.toUpperCase()===this.nombreArea.toUpperCase());
+      this.busqueda.emit(busqueda);
+  }
 }

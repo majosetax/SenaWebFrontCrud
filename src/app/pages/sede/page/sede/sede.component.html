@@ -40,6 +40,7 @@
   title="Resultado de la busqueda"
   [(show)]="showResultadoBusqueda">
   <app-sede-result
+    *ngIf="showResultadoBusqueda"
     [resultadoBusqueda]="resultadoBusqueda"
     (update)="actualizarSede($event)"
     (delete)="eliminarSede($event)"
