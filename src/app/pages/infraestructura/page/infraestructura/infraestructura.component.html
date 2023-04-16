@@ -1,0 +1,13 @@
+<app-infraestructura-list
+  [infraestructuras]="infreaestructuras"
+  [sedes]="sedes"
+  [areas]="areas"
+  [ciudades]="ciudades"
+  (update)="actualizarInfraestructura($event)"
+  (delete)="eliminarInfraestructura($event)"
+  (create)="crearInfraestructura()"
+  (ciudadId)="getSedesByCiudad($event)"
+  (filtro)="filtrarInfraestructuras($event)"
+  (info)="verInfoInfraestructura($event)"
+  (busqueda)="buscarInfraestructura($event)">
+</app-infraestructura-list>

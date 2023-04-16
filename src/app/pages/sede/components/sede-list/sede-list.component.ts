@@ -26,13 +26,13 @@ export class SedeListComponent{
   ciudadSelect:boolean=true;
   nombreSede:string='';
 
-  numRegistros:number=10;
+  numReg:number=10;
   pageActual:number=0
   constructor(){
     this.ciudades=[];
   }
   enviarNumeroRegistros(num: number){
-    this.numRegistros = num;
+    this.numReg = num;
   }
   actualizar(sede:SedeModel){
     this.update.emit(sede);

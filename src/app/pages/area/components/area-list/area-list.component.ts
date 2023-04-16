@@ -15,12 +15,12 @@ export class AreaListComponent {
   @Output() update= new EventEmitter<AreaModel>();
   @Output() busqueda = new EventEmitter<AreaModel>();
 
-  numRegistros:number=10;
+  numReg:number=10;
   pageActual:number=0;
   nombreArea:string='';
 
   enviarNumeroRegistros(num: number){
-    this.numRegistros = num;
+    this.numReg = num;
   }
 
   actualizar(area: AreaModel){

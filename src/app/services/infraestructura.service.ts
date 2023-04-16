@@ -12,27 +12,45 @@ export class InfraestructuraService {
   ) { }
 
   //retorna todas las infraestructuras
-  public getInfraestructuras(){
+  traerInfraestructuras(){
     return this._coreService.get<InfraestructuraModel[]>('infraestructuras');
   }
   //retorna una infraestructura basado en su id
-  public getInfraestructura(id:number){
-    return this._coreService.get<InfraestructuraModel>('infraestructuras/'+id);
+  traerInfraestructura(id:number){
+    const url:string=`infraestructuras/${id}`;
+    return this._coreService.get<InfraestructuraModel>(url);
+  }
+  //trae las infraestructuras pasandole la id de la sede
+  infrBySede(id:number){
+    const url:string=`infraestructuras/sede/${id}`;
+    return this._coreService.get<InfraestructuraModel[]>(url);
+  }
+   //trae las infraestructuras pasandole la id de la sede
+   infrByArea(id:number){
+    const url:string=`infraestructuras/area/${id}`;
+    return this._coreService.get<InfraestructuraModel[]>(url);
+  }
+   //trae las infraestructuras pasandole la id de la sede
+   infrBySedeArea(idSede:number,idArea:number){
+    const url:string=`infraestructuras/sede/${idSede}/area/${idArea}`;
+    return this._coreService.get<InfraestructuraModel[]>(url);
   }
   //borra una infraestructura de la base de datos
-  public deleteInfraestructura(id:number){
-    return this._coreService.delete('infraestructuras/'+id)
+  borrarInfraestructura(id:number){
+    const url:string=`infraestructuras/${id}`;
+    return this._coreService.delete(url);
   }
   //crea una infraestructura
-  public createInfraestructura(infraestructura:InfraestructuraModel){
+  guardarInfraestructura(infraestructura:InfraestructuraModel){
     infraestructura.nombreInfraestructura=infraestructura.nombreInfraestructura.toUpperCase();
     infraestructura.descripcion=infraestructura.descripcion.toUpperCase();
-    return this._coreService.post<InfraestructuraModel>('infraestructura',infraestructura);
+    return this._coreService.post<InfraestructuraModel>('infraestructuras',infraestructura);
   }
   //actualiza una infraestructura existente
-  public updateInfraestructura(infraestructura: InfraestructuraModel){
+  actualizarInfraestructura(infraestructura: InfraestructuraModel){
+    const url:string=`infraestructuras/${infraestructura.id}`;
     infraestructura.nombreInfraestructura=infraestructura.nombreInfraestructura.toUpperCase();
-    infraestructura.descripcion=infraestructura.descripcion.toUpperCase();
-    return this._coreService.post<InfraestructuraModel>('infraestructura/'+infraestructura.id,infraestructura);
+    infraestructura.descripcion=infraestructura.descripcion.toLowerCase();
+    return this._coreService.post<InfraestructuraModel>(url,infraestructura);
   }
 }
