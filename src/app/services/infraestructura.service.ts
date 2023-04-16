@@ -51,6 +51,6 @@ export class InfraestructuraService {
     const url:string=`infraestructuras/${infraestructura.id}`;
     infraestructura.nombreInfraestructura=infraestructura.nombreInfraestructura.toUpperCase();
     infraestructura.descripcion=infraestructura.descripcion.toLowerCase();
-    return this._coreService.post<InfraestructuraModel>(url,infraestructura);
+    return this._coreService.put<InfraestructuraModel>(url,infraestructura);
   }
 }

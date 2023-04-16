@@ -13,6 +13,22 @@
 </app-infraestructura-list>
 
 <app-custom-modal
+  title="Gestionar Infraestructura"
+  [(show)]="showFormInfr">
+  <app-infraestructura-form
+    *ngIf="showFormInfr"
+    [infraestructura]="infraestructura"
+    [areas]="areas"
+    [ciudades]="ciudades"
+    [sedes]="sedes"
+    [title]="formTitle"
+    (store)="guardarInfraestructura($event)"
+    (ciudadId)="getSedesByCiudad($event)"
+    (cancel)="reset()">
+  </app-infraestructura-form>
+</app-custom-modal>
+
+<app-custom-modal
   title="Información de la infraestructura"
   [(show)]="showInfoInfr">
   <app-infraestructura-info

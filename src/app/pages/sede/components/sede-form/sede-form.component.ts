@@ -22,8 +22,7 @@ export class SedeFormComponent implements OnInit{
   @Output() depId = new EventEmitter<number>();
 
   formSede: UntypedFormGroup;
-  ciudadSelect:boolean=false;
-  ciudadId:number=0;
+  
   constructor(
     private formBuilder:UntypedFormBuilder
   ){
@@ -115,16 +114,7 @@ export class SedeFormComponent implements OnInit{
     }
   }
 
-  guardarIdCiudad(ciudadId:number){
-    this.ciudadId=ciudadId;
-  }
-
   enviarIdDep(idDep:number){
-    if(idDep>0){
-      this.ciudadSelect=false;
-    }else{
-      this.ciudadSelect=true;
-    }
     this.depId.emit(idDep);
   }
 

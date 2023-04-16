@@ -118,9 +118,6 @@
             class="form-control"
             id="ciudadF"
             formControlName="idCiudad"
-            (change)="guardarIdCiudad(
-                $event.target.value
-              )"
             required>
             <option
               *ngFor="let ciudad of ciudades"

@@ -10,6 +10,7 @@ import { InfraestructuraListComponent } from './components/infraestructura-list/
 import { NgxPaginationModule } from 'ngx-pagination';
 import { InfraestructuraInfoComponent } from './components/infraestructura-info/infraestructura-info.component';
 import { InfraestructuraResultComponent } from './components/infraestructura-result/infraestructura-result.component';
+import { InfraestructuraFormComponent } from './components/infraestructura-form/infraestructura-form.component';
 
 @NgModule({
   exports:[
@@ -19,7 +20,8 @@ import { InfraestructuraResultComponent } from './components/infraestructura-res
     InfraestructuraComponent,
     InfraestructuraListComponent,
     InfraestructuraInfoComponent,
-    InfraestructuraResultComponent
+    InfraestructuraResultComponent,
+    InfraestructuraFormComponent
   ],
   imports: [
     CommonModule,
