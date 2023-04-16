@@ -11,3 +11,13 @@
   (info)="verInfoInfraestructura($event)"
   (busqueda)="buscarInfraestructura($event)">
 </app-infraestructura-list>
+
+<app-custom-modal
+  title="Informació de la infraestructura"
+  [(show)]="showInfoInfr">
+  <app-infraestructura-info
+    *ngIf="showInfoInfr"
+    [infraestructura]="infraestructura"
+    (cerrar)="reset()">
+  </app-infraestructura-info>
+</app-custom-modal>
