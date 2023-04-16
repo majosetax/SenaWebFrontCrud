@@ -9,6 +9,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { InfraestructuraListComponent } from './components/infraestructura-list/infraestructura-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { InfraestructuraInfoComponent } from './components/infraestructura-info/infraestructura-info.component';
+import { InfraestructuraResultComponent } from './components/infraestructura-result/infraestructura-result.component';
 
 @NgModule({
   exports:[
@@ -17,7 +18,8 @@ import { InfraestructuraInfoComponent } from './components/infraestructura-info/
   declarations: [
     InfraestructuraComponent,
     InfraestructuraListComponent,
-    InfraestructuraInfoComponent
+    InfraestructuraInfoComponent,
+    InfraestructuraResultComponent
   ],
   imports: [
     CommonModule,

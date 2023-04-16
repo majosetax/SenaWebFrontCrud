@@ -13,11 +13,24 @@
 </app-infraestructura-list>
 
 <app-custom-modal
-  title="Informació de la infraestructura"
+  title="Información de la infraestructura"
   [(show)]="showInfoInfr">
   <app-infraestructura-info
     *ngIf="showInfoInfr"
     [infraestructura]="infraestructura"
     (cerrar)="reset()">
   </app-infraestructura-info>
+</app-custom-modal>
+
+<app-custom-modal
+  title="Resultado de la busqueda"
+  [(show)]="showResultadoBusqueda">
+  <app-infraestructura-result
+    *ngIf="showResultadoBusqueda"
+    [resultadoBusqueda]="resultadoBusqueda"
+    (update)="actualizarInfraestructura($event)"
+    (delete)="eliminarInfraestructura($event)"
+    (close)="closeBusqueda()"
+    (cancel)="reset()">
+  </app-infraestructura-result>
 </app-custom-modal>
