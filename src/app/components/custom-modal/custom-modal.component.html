@@ -1,4 +1,4 @@
-<div
+<div 
   bsModal
   #myModal="bs-modal"
   class="modal fade"
@@ -6,7 +6,7 @@
   role="dialog"
   aria-labelledby="myModalLabel"
   aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog" [ngClass]="[customClassSize]" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">{{ title }}</h4>
