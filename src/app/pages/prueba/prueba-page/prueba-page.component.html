@@ -1,0 +1,33 @@
+<div class="card col col md 12">
+<div class="card-header">
+
+    <h1>PRUEBA FABRICA</h1>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descripcion</th>
+                    <th>Fecha</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <thead>
+                <tr *ngFor="let tarea of tareas">
+                    <th>{{tarea.id}}</th>
+                    <td>{{tarea.descripcion}}</td>
+                    <td>{{tarea.fecha}}</td>  
+                    <td>
+                      <button class="btn btn-outline-warning">   
+                      <i class="fa-solid fa-user-pen" ></i></button>
+    
+                      <button class="btn btn-outline-danger"  style="margin-left: 10px;">        
+                      <i class="fa-solid fa-user-xmark"></i></button> 
+                        </td>  
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+</div>

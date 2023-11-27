@@ -10,7 +10,8 @@ import { GESTION_MEDIO_PAGO,
           GESTION_PAGO_NOMINA,
           GESTION_SEDE,
           GESTION_AREA,
-          GESTION_INFRAESTRUCTURA
+          GESTION_INFRAESTRUCTURA,
+          PRUEBA_PERMISOS
 } from './permissions';
 
 export const navItems: NavegacionModel[] = [
@@ -87,6 +88,13 @@ export const navItems: NavegacionModel[] = [
     permiso: GESTION_INFRAESTRUCTURA,
   },
 
+  {
+    name: "Prueba Fabrica",
+    url: 'prueba_fabrica', //URL que mostrará la vista
+    icon: 'icon-home',
+    permiso: PRUEBA_PERMISOS,
+  },
+
 ];
 
 
@@ -150,6 +158,10 @@ export const routesNav: Routes = [
   {
     path: 'gestionar_infraestructura',
     loadChildren: () => import('../pages/infraestructura/infraestructura.module').then(m => m.InfraestructuraModule)
+  },
+  {
+    path: 'prueba_fabrica',
+    loadChildren: () => import('../pages/prueba/prueba.module').then(m => m.PruebaModule)
   }
 
 ];
