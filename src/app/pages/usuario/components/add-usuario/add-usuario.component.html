@@ -84,6 +84,7 @@
           <div class="valid-feedback" *ngIf="!fechaNacField.hasError('required');else formato ">
             Valor valido
           </div>
+          
           <ng-template #formato>
             formato de fecha:(aaaa/mm/dd)
           </ng-template>

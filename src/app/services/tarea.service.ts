@@ -16,4 +16,18 @@ export class TareaService {
     return this._coreServicce.get<TareaModel[]>(url);
   }
 
+  agregarTarea(tarea: TareaModel){
+    let url:string='pruebas';
+    return this._coreServicce.post<TareaModel>(url, tarea);
+   }
+
+  actualizarTarea(tarea: TareaModel) {
+    let url:string='pruebas';
+    return this._coreServicce.put(`${url}/${tarea.id}`, tarea);
+  }
+
+  eliminarTarea(tareaId: number) {
+    let url:string='pruebas';
+    return this._coreServicce.delete(`${url}/${tareaId}`);
+  }
 }
