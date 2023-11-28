@@ -22,10 +22,10 @@
                     <td>{{tarea.descripcion}}</td>
                     <td>{{tarea.fecha}}</td>  
                     <td>
-                      <button class="btn btn-outline" (click)="seleccionarTarea(tarea)" (click)="mostrarFormularioAct()">   
+                      <button class="btn btn-outline" >   
                       <i class="fa fa-edit fa-lg mt-4"></i></button>
     
-                      <button class="btn btn-outline" (click)="confirmarEliminarTarea(tarea)">       
+                      <button class="btn btn-outline" >       
                         <i class="fa fa-remove fa-lg mt-4"></i></button> 
                         </td>  
                       
@@ -34,46 +34,18 @@
         </table>
 
         <div>
-            <button class="btn btn-outline-primary" (click)="mostrarFormulario()">Agregar registro</button>
+            <button class="btn btn-outline-primary" >Agregar registro</button>
       
            
-              
-              <div *ngIf="mostrarForm">
-                <br>
-              <form (submit)="agregarTarea()">
-                <label>Descripcion:
-                  <input type="text" [(ngModel)]="nuevaTarea.descripcion" name="descripcion" required>
-                </label>
-                <br>
-                <label>Fecha:
-                  <input type="date" [(ngModel)]="nuevaTarea.fecha" name="fecha" required>
-                </label>
-                <br>
-                <button class="btn btn-outline-primary" type="submit">Agregar</button> 
-              </form>
-            </div>
+          
+             
             
 
-            <div *ngIf="mostrarFormAct">
-              <br>
-              <h4>Actualizar Registro</h4>
-              <form (submit)="actualizarTarea()">
-                <label *ngIf="tareaSeleccionada">Descripción: 
-                  <input type="text" class="form-control" id="descripcion" [(ngModel)]="tareaSeleccionada.descripcion" name="descripcion">
-                </label>
-
-                <br>
-                <label *ngIf="tareaSeleccionada">Fecha: 
-                  <input type="date" class="form-control" id="fecha" [(ngModel)]="tareaSeleccionada.fecha" name="fecha">
-                </label>
-
-                <br>
-                <button class="btn btn-outline-primary" type="submit">Actualizar</button> 
-              </form>
+           
+           
             </div>
         
     </div>
 </div>
 
-</div>
-</div>
+
