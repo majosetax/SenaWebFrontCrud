@@ -13,22 +13,24 @@ export class TareaService {
   ) { }
 
   traerTareas(){
-    let url:string='pruebas';
-    return this._coreServicce.get<TareaModel[]>(url);
+    
+    return this._coreServicce.get<TareaModel[]>('pruebas');
   }
 
   agregarTarea(tarea: TareaModel){
-    let url:string='pruebas';
-    return this._coreServicce.post<TareaModel>(url, tarea);
+    
+    return this._coreServicce.post<TareaModel>('pruebas', tarea);
    }
 
   actualizarTarea(tarea: TareaModel) {
-    let url:string='pruebas';
-    return this._coreServicce.put(`${url}/${tarea.id}`, tarea);
+
+    return this._coreServicce.put('pruebas/'+ tarea.id, tarea);
   }
 
   eliminarTarea(tareaId: number) {
-    let url:string='pruebas';
-    return this._coreServicce.delete(`${url}/${tareaId}`);
+ 
+    return this._coreServicce.delete('pruebas/'+tareaId);
   }
+
+  
 }

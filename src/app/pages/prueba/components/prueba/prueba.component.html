@@ -1,0 +1,36 @@
+<div class="modal-body">
+    <div class="card-body">
+      <form class="tareaFormulario" [formGroup]="formTarea">
+        <div class="form-group row">
+          <label class="col-md-4 col-form-label" for="descripcion">Descripcion</label>
+          <div class="col-md-7">
+            <input
+              type="text"
+              placeholder="Ingrese la descripcion"
+              formControlName='descripcion'>
+            </div>
+          </div>
+        <div class="form-group row">
+            <label class="col-md-4 col-form-label" for="fecha">Fecha</label>
+          <div class="col-md-7">
+            <input
+              type="date"
+              placeholder="Ingrese la fecha"
+              formControlName='fecha'>
+          </div>
+        </div>
+      </form>
+      <div class="card-footer">
+        <button
+          type="submit"
+          class="btn btn-outline-primary btn-sm"
+          (click)="guardarTarea()"
+          [disabled]="formTarea.invalid">Aceptar</button>
+
+        <button
+          type="reset"
+          class="btn btn-outline-danger btn-sm"
+          (click)="closeModal()">Cancelar</button>
+      </div>
+    </div>
+  </div>

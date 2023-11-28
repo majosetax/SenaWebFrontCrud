@@ -1,0 +1,35 @@
+<div class="div-principal col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <div class="div table-container ">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Descripcion</th>
+              <th>Fecha</th>
+              <th>Acciones</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tarea of tareas">
+              <td>{{tarea.id}}</td>
+              <td>{{tarea.descripcion}}</td>
+              <td>{{tarea.fecha}}</td>
+              <td>
+                <button type="button" class="btn btn-outline-warning btn-sm"
+                  (click)="actualizar(tarea)">Actualizar</button>
+                  <button type="button" class="btn btn-outline-danger btn-sm"
+                  [swal]="{title:'¿Esta seguro de eliminar este registro?',  showCancelButton: true }"
+                  (confirm)="eliminar(tarea.id)">
+                  Eliminar
+                  </button>
+              </td>
+            </tr>
+          </tbody>
+          <br>
+          <button type="button"  class="btn btn-outline-primary btn-sm" (click)="agregar()">Agregar</button>
+        </table>
+      </div>
+    </div>
+  </div>
+  </div>

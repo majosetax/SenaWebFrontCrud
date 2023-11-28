@@ -29,6 +29,10 @@ export class PruebaComponent {
       this.buildForm();
     }
   
+    ngOnInit(): void {
+      this.setTarea();
+    }
+  
   
     get descripcion() {
       return this.formTarea.get('descripcion');
@@ -50,8 +54,8 @@ export class PruebaComponent {
     private buildForm() {
       this.formTarea = this.formBuilder.group({
         id: [0],
-        name: ['', [Validators.required]],
-        idCompany: ['', [Validators.required]],
+        descripcion: ['', [Validators.required]],
+        fecha: [new Date(), [Validators.required]],
       });
   
       this.formTarea.valueChanges
