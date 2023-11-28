@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <div class="card col col md 12">
 <div class="card-header">
+ 
 
     <h1>PRUEBA FABRICA</h1>
     <div class="card-body">
@@ -21,21 +22,24 @@
                     <td>{{tarea.descripcion}}</td>
                     <td>{{tarea.fecha}}</td>  
                     <td>
-                      <button class="btn btn-outline-warning">   
-                      <i class="fa-solid fa-user-pen" ></i></button>
+                      <button class="btn btn-outline" (click)="seleccionarTarea(tarea)" (click)="mostrarFormularioAct()">   
+                      <i class="fa fa-edit fa-lg mt-4"></i></button>
     
-                      <button class="btn btn-outline-danger"  style="margin-left: 10px;" (click)="confirmarEliminarTarea(tarea)">        
-                      <i class="fa-solid fa-user-xmark"></i></button> 
+                      <button class="btn btn-outline" (click)="confirmarEliminarTarea(tarea)">       
+                        <i class="fa fa-remove fa-lg mt-4"></i></button> 
                         </td>  
+                      
             </tr>
             </thead>
         </table>
 
         <div>
-            <button (click)="mostrarFormulario()">Agregar registro</button>
+            <button class="btn btn-outline-primary" (click)="mostrarFormulario()">Agregar registro</button>
       
-            <div *ngIf="mostrarForm">
-              <h2>Agregar Registro</h2>
+           
+              
+              <div *ngIf="mostrarForm">
+                <br>
               <form (submit)="agregarTarea()">
                 <label>Descripcion:
                   <input type="text" [(ngModel)]="nuevaTarea.descripcion" name="descripcion" required>
@@ -45,11 +49,28 @@
                   <input type="date" [(ngModel)]="nuevaTarea.fecha" name="fecha" required>
                 </label>
                 <br>
-                <button type="submit">Agregar</button> 
+                <button class="btn btn-outline-primary" type="submit">Agregar</button> 
               </form>
             </div>
-    
-      
+            
+
+            <div *ngIf="mostrarFormAct">
+              <br>
+              <h4>Actualizar Registro</h4>
+              <form (submit)="actualizarTarea()">
+                <label *ngIf="tareaSeleccionada">Descripción: 
+                  <input type="text" class="form-control" id="descripcion" [(ngModel)]="tareaSeleccionada.descripcion" name="descripcion">
+                </label>
+
+                <br>
+                <label *ngIf="tareaSeleccionada">Fecha: 
+                  <input type="date" class="form-control" id="fecha" [(ngModel)]="tareaSeleccionada.fecha" name="fecha">
+                </label>
+
+                <br>
+                <button class="btn btn-outline-primary" type="submit">Actualizar</button> 
+              </form>
+            </div>
         
     </div>
 </div>
